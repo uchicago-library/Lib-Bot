@@ -99,16 +99,28 @@ internet, so the skill runs from a laptop with the catalog leg whitelisted.
 
 ## Getting started
 
-**1. Install.** From the repo root:
+**Before you start,** install these two free tools if you don't already have them:
+
+- **Git** — [git-scm.com/downloads](https://git-scm.com/downloads) (copies the code to your computer)
+- **Python 3** — [python.org/downloads](https://www.python.org/downloads/) (runs it; the latest version is fine)
+
+**1. Download the code.**
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install .[all]
+git clone https://github.com/uchicago-library/Lib-Bot.git
+cd Lib-Bot
 ```
 
-`.[all]` installs every tool's dependencies. The core skill is pure Python
-stdlib, so `pip install .` alone runs everything except the HTRC content-analysis
-action — which needs `pip install .[catalog-search]`. Contributing? Add
-`pip install .[dev]` for the flake8/black/isort lint toolchain (see AGENTS.md).
+**2. Install.** From inside the `Lib-Bot` folder:
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install ".[all]"
+```
+
+`".[all]"` installs every tool's dependencies. The core skill is pure Python
+stdlib, so `pip install "."` alone runs everything except the HTRC
+content-analysis action — which needs `".[catalog-search]"`. Contributing? Add
+`".[dev]"` for the flake8/black/isort lint toolchain (see AGENTS.md).
 
 **2. Configure.** Point the skill at your catalog — copy the example config and
 set `catalog_base` to your VuFind instance's base URL:
