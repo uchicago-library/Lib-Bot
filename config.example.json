@@ -1,0 +1,13 @@
+{
+  "_comment": "Copy to config.json (repo root) and edit. config.json is gitignored — keep secrets out of version control. Per-tool settings live under the tool's key (its skills/ directory name), not at the top level. Every key is optional and overridable by the matching LIBBOT_<KEY> env var (e.g. LIBBOT_CATALOG_BASE). Precedence: built-in defaults < this file < LIBBOT_* env. Point LIBBOT_CONFIG at this file to keep it elsewhere; choose the interpreter with LIBBOT_PYTHON (default: the repo's .venv).",
+
+  "catalog-search": {
+    "catalog_base": "https://your-vufind-host/vufind",
+    "contact_email": "you@example.org",
+    "probe_depth_n": 5,
+    "_inline_enrichers_note": "Enrichers that run eagerly on every --annotate search — the two defaults are the cheap, always-on inline probes. HathiTrust (--htrc), PubMed (--pubmed), and public full-text discovery (findtext.py) are opt-in / on-demand, not listed here. See skills/catalog-search/SKILL.md for the full set.",
+    "inline_enrichers": ["wikidata", "openlibrary_ia"],
+    "http_timeout": 20,
+    "fulltext_timeout": 90
+  }
+}

@@ -1,0 +1,27 @@
+# Local config (may hold secrets / environment-specific URLs); copy from
+# config.example.json. Lives at the repo root; the skill-level path is kept
+# ignored too for safety.
+/config.json
+skills/*/config.json
+
+# Internal working docs — not for the public repo
+CHECKLIST.md
+BUILD-LOG.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Local scratch / pulled artifacts (full-text dumps, EF caches)
+*.tmp
+/tmp-artifacts/
+
+# Editor / OS cruft
+.DS_Store
+*.swp

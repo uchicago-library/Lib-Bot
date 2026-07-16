@@ -1,0 +1,44 @@
+[project]
+name = "lib-bot"
+version = "0.1.0"
+description = "Harness-neutral AI skills for interacting with University of Chicago Library systems"
+requires-python = ">=3.9"
+# Lib-Bot runs from a checkout: skills are invoked as standalone scripts under
+# skills/*/scripts (by path). The core skills are pure Python stdlib, so the base
+# install needs nothing. Each tool's third-party deps live in a named extra, so a
+# user installs only what they use:
+#     pip install .                  # stdlib core (most of catalog-search)
+#     pip install .[catalog-search]  # that tool, in full
+#     pip install .[all]             # everything (recommended)
+dependencies = []
+
+[project.optional-dependencies]
+# HathiTrust Research Center Extracted Features: content analysis of books
+# (incl. in-copyright) without their readable text. Used by the HTRC
+# content-analysis action (analyze.py); pulls in pandas/numpy/pymarc/requests.
+catalog-search = ["htrc-feature-reader"]
+# "Everything" install; self-references the per-tool extras so it stays in sync
+# as tools are added.
+all = ["lib-bot[catalog-search]"]
+# Contributor tooling (not a runtime dependency of any skill): pip install .[dev].
+# Needs Python >=3.10 (black/isort require it); the skills themselves still run on
+# 3.9. CI lints on 3.12, and black's target-version=py39 keeps output 3.9-safe.
+dev = ["flake8==7.3.0", "black==26.3.1", "isort==8.0.1"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# Runtime code is invoked as standalone scripts under skills/*/scripts, not
+# imported as an installed package. This project exists for reproducible
+# dependency management (a pinned venv), so there are no packages to build.
+packages = []
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+skip_glob = [".venv/*"]
