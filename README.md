@@ -99,6 +99,19 @@ internet, so the skill runs from a laptop with the catalog leg whitelisted.
 
 ## Getting started
 
+> [!TIP]
+> **Easy install — let Claude do it.** If you have access to Claude, it can do the
+> whole setup for you: open the **Code** tab in the Claude desktop app and paste
+> the prompt below. Claude clones the repo, installs it, points it at the catalog,
+> and runs a test search. Prefer to do it by hand? Use the manual steps underneath.
+
+```text
+Please install and set up this repo so it's ready to run:
+https://github.com/uchicago-library/Lib-Bot#getting-started
+Configure it to use https://dldc2.lib.uchicago.edu/vufind as the catalog source.
+Once a test search works, explain how to use it.
+```
+
 **Before you start,** install these two free tools if you don't already have them:
 
 - **Git** — [git-scm.com/downloads](https://git-scm.com/downloads) (copies the code to your computer)
