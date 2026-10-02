@@ -108,7 +108,7 @@ internet, so the skill runs from a laptop with the catalog leg whitelisted.
 ```text
 Please install and set up this repo so it's ready to run:
 https://github.com/uchicago-library/Lib-Bot#getting-started
-Configure it to use https://dldc2.lib.uchicago.edu/vufind as the catalog source.
+Configure it to use https://catalog.lib.uchicago.edu/vufind as the catalog source.
 Once a test search works, explain how to use it.
 ```
 
